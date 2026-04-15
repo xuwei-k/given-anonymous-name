@@ -1,0 +1,13 @@
+> Test/compile
+> givenAnonymousName
+$ exec cat target/given-anonymous-name/given-anonymous-name.json
+> checkJson
+> scalafixAll GivenAnonymousNameWarn
+-> scalafixAll GivenAnonymousNameError
+> scalafixAll GivenAnonymousNameRemove
+> scalafixAll --no-cache GivenAnonymousNameError
+> Test/compile
+$ must-mirror expect/A1.scala a1/src/main/scala/A1.scala
+$ must-mirror expect/A2.scala a2/src/main/scala/A2.scala
+$ must-mirror expect/A3.scala a3/src/main/scala/A3.scala
+$ must-mirror expect/B1.scala a1/src/test/scala/B1.scala

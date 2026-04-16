@@ -5,7 +5,7 @@
 ### `project/plugins.sbt`
 
 ```scala
-addSbtPlugin("com.github.xuwei-k" % "given-anonymous-name-plugin" % "0.1.0")
+addSbtPlugin("com.github.xuwei-k" % "given-anonymous-name-plugin" % "0.1.1")
 ```
 
 ### sbt shell

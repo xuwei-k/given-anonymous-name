@@ -1,0 +1,10 @@
+package example
+
+import scala.language.experimental.captureChecking
+
+object Main {
+  def foo[A, B](f: A^ => B): B =
+    ???
+
+  given  Int = 3
+}

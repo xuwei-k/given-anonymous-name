@@ -1,0 +1,10 @@
+> Test/compile
+-> givenAnonymousName
+> updateScalafixConfigDialectOverrride
+> givenAnonymousName
+> scalafixAll --no-cache GivenAnonymousNameWarn
+-> scalafixAll --no-cache GivenAnonymousNameError
+> scalafixAll --no-cache GivenAnonymousNameRemove
+> checkScalaFile
+> Test/compile
+> scalafixAll --no-cache GivenAnonymousNameError

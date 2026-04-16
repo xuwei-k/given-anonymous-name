@@ -34,7 +34,7 @@ class GivenAnonymousNameRemove(config: GivenAnonymousNameScalafixConfig)
       .collect {
         case (tree, treeName) if unusedNames.contains(treeName.value) && !CheckUnusedAnnotation.exists(tree) =>
           Seq(
-            if (tree.paramClauseGroups.headOption.exists(_.tparamClause.values.nonEmpty)) {
+            if (tree.paramClauseGroups.nonEmpty) {
               Patch.empty
             } else {
               tree.tokens

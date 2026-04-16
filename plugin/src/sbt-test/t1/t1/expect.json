@@ -9,6 +9,10 @@
       "path": "a1/src/main/scala/A1.scala"
     },
     {
+      "value": "x4",
+      "path": "a1/src/main/scala/A1.scala"
+    },
+    {
       "value": "b1",
       "path": "a1/src/test/scala/B1.scala"
     },

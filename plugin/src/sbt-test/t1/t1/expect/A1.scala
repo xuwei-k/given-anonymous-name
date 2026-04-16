@@ -4,4 +4,6 @@ object A1 {
   given       Int = 2
 
   given [B]: List[B] = Nil
+
+  given (using c: Int): Int = 4
 }

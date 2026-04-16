@@ -5,4 +5,6 @@ object A1 {
     : Int = 2
 
   given x3[B]: List[B] = Nil
+
+  given x4(using c: Int): Int = 4
 }

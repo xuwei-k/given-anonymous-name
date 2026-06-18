@@ -1,6 +1,7 @@
 import sbtrelease.ReleasePlugin.autoImport.ReleaseTransformations._
 
 def sbt2 = "2.0.0"
+def sbt1 = "1.12.12"
 def Scala212 = "2.12.21"
 def Scala213 = "2.13.18"
 def Scala3 = scala_version_from_sbt_version.ScalaVersionFromSbtVersion(sbt2)
@@ -10,7 +11,7 @@ val commonSettings = Def.settings(
   libraryDependencies += "org.scalatest" %% "scalatest-funsuite" % "3.2.20" % Test,
   Compile / unmanagedResources += (LocalRootProject / baseDirectory).value / "LICENSE.txt",
   Compile / doc / scalacOptions ++= {
-    val hash = sys.process.Process("git rev-parse HEAD").lineStream_!.head
+    val hash = sys.process.Process("git rev-parse HEAD").lazyLines_!.head
     if (scalaBinaryVersion.value != "3") {
       Seq(
         "-sourcepath",
@@ -74,9 +75,10 @@ val commonSettings = Def.settings(
   licenses := List(License.MIT),
 )
 
-commonSettings
-
-publish / skip := true
+lazy val `given-anonymous-name-root` = rootProject.autoAggregate.settings(
+  commonSettings,
+  publish / skip := true,
+)
 
 releaseProcess := Seq[ReleaseStep](
   checkSnapshotDependencies,
@@ -111,8 +113,8 @@ lazy val plugin = projectMatrix
     pluginCrossBuild / sbtVersion := {
       scalaBinaryVersion.value match {
         case "2.12" =>
-          sbtVersion.value
-        case _ =>
+          sbt1
+        case "3" =>
           sbt2
       }
     },

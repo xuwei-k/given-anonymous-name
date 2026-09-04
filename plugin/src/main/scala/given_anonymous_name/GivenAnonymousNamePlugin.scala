@@ -66,7 +66,7 @@ object GivenAnonymousNamePlugin extends AutoPlugin with GivenAnonymousNamePlugin
     val buildSbt =
       s"""|name := "tmp-given-anonymous-name"
           |logLevel := Level.Warn
-          |scalaVersion := "2.13.18"
+          |scalaVersion := "3.9.0"
           |libraryDependencies ++= Seq(
           |  "com.github.xuwei-k" %% "given-anonymous-name-scalafix" % "${GivenAnonymousNameBuildInfo.version}"
           |)

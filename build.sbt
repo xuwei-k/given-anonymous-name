@@ -166,7 +166,7 @@ lazy val fix = projectMatrix
     commonSettings,
     name := "given-anonymous-name-scalafix",
     description := "scalafix rules given-anonymous-name",
-    libraryDependencies += "ch.epfl.scala" %% "scalafix-core" % "0.14.7",
+    libraryDependencies += "ch.epfl.scala" %% "scalafix-core" % "0.14.8",
   )
   .defaultAxes(VirtualAxis.jvm)
   .jvmPlatform(Seq(Scala213, Scala212))
